@@ -1,17 +1,11 @@
 import Image from "next/image";
 import TodayDate from "@/components/layout/TodayDate";
 import Link from "next/link";
+import { Suspense } from "react";
+import CategoryNav from "@/components/layout/CategoryNav";
+import AuthButtons from "@/components/layout/AuthButtons";
 
-const categories = [
-  { name: "চাল", icon: "🍚", slug: "chal" },
-  { name: "ডাল", icon: "🌾", slug: "dal" },
-  { name: "তেল", icon: "🫙", slug: "tel" },
-  { name: "সবজি", icon: "🥬", slug: "sobji" },
-  { name: "মাছ", icon: "🐟", slug: "mach" },
-  { name: "মাংস", icon: "🍗", slug: "mangsho" },
-  { name: "ডিম", icon: "🥚", slug: "dim" },
-  { name: "মসলা", icon: "🌶️", slug: "mosla" },
-];
+
 
 export default function Header() {
   return (
@@ -43,50 +37,23 @@ export default function Header() {
 </div>
             </Link>
 
-            <div className="flex shrink-0 items-center gap-1 sm:gap-3">
-              <button
-                type="button"
-                disabled
-                className="px-2 py-2 text-xs font-medium text-gray-700 sm:px-3 sm:text-sm"
-              >
-                সাইন ইন
-              </button>
-
-              <button
-                type="button"
-                disabled
-                className="rounded-lg bg-green-600 px-3 py-2 text-xs font-semibold text-white sm:px-5 sm:py-2.5 sm:text-sm"
-              >
-                সাইন আপ
-              </button>
-            </div>
+           <AuthButtons />
           </div>
         </div>
       </div>
 
       <div className="border-b border-gray-200">
         <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-          <nav
-            aria-label="পণ্যের বিভাগ"
-            className="flex items-center justify-between overflow-x-auto"
-          >
-            {categories.map((category) => (
-  <Link
-    key={category.slug}
-    href={`/category/${category.slug}`}
-    className="flex shrink-0 items-center justify-center gap-2 border-b-2 border-transparent px-3 py-3 text-xs font-medium text-gray-700 transition hover:bg-green-50 hover:text-green-600 sm:px-5 sm:py-4 sm:text-sm"
-  >
-    <span
-      aria-hidden="true"
-      className="shrink-0 text-base sm:text-lg"
-    >
-      {category.icon}
-    </span>
-
-    <span>{category.name}</span>
-  </Link>
-))}
-          </nav>
+         <Suspense
+  fallback={
+    <div
+      aria-label="পণ্যের বিভাগ লোড হচ্ছে"
+      className="h-12 sm:h-14"
+    />
+  }
+>
+  <CategoryNav />
+</Suspense>
         </div>
       </div>
     </header>

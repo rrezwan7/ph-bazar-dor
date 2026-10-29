@@ -26,8 +26,8 @@ export default function TodayDate() {
   }, []);
 
   return (
-    <p className="min-h-4 text-[10px] text-gray-500 sm:text-xs">
+    <span className="min-h-4 text-[10px] text-gray-500 sm:text-xs">
       {date}
-    </p>
+    </span>
   );
 }
