@@ -1,4 +1,5 @@
 import Image from "next/image";
+import TodayDate from "@/components/layout/TodayDate";
 import Link from "next/link";
 
 const categories = [
@@ -33,15 +34,13 @@ export default function Header() {
                 />
               </div>
 
-              <div className="min-w-0">
-                <p className="text-lg font-bold text-gray-800 sm:text-xl">
-                  বাজার দর
-                </p>
+             <div className="min-w-0">
+  <p className="text-lg font-bold text-gray-800 sm:text-xl">
+    বাজার দর
+  </p>
 
-                <p className="text-[10px] text-gray-500 sm:text-xs">
-                  নিত্যপ্রয়োজনীয় পণ্যের দৈনিক বাজার মূল্য
-                </p>
-              </div>
+  <TodayDate />
+</div>
             </Link>
 
             <div className="flex shrink-0 items-center gap-1 sm:gap-3">

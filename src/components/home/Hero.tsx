@@ -1,4 +1,5 @@
 import Image from "next/image";
+import TodayDate from "@/components/layout/TodayDate";
 
 export default function Hero() {
   return (
@@ -7,20 +8,16 @@ export default function Hero() {
         <div className="grid min-h-[350px] overflow-hidden rounded-2xl bg-gradient-to-r from-green-50 to-green-100 lg:grid-cols-2">
           <div className="flex flex-col justify-center px-6 py-10 sm:px-10 lg:px-12">
             <p className="mb-4 w-fit rounded-full bg-green-100 px-3 py-1 text-sm font-semibold text-green-700">
-              🌿 আজকের বাজার দর
+              <TodayDate />
             </p>
 
             <h1 className="text-3xl font-extrabold leading-tight text-gray-900 sm:text-4xl lg:text-5xl">
-              আপনার প্রতিদিনের
-              <span className="block text-green-600">
-                সঠিক বাজার দর
+              <span>আজকের বাজারের দাম এক নজরে
               </span>
             </h1>
 
             <p className="mt-4 max-w-lg text-sm leading-7 text-gray-600 sm:text-base">
-              দেশের বিভিন্ন বাজারের সবজি, ফল, মাছ, মাংস,
-              ডাল, তেলসহ নিত্যপ্রয়োজনীয় পণ্যের সর্বশেষ
-              দাম জানুন এক জায়গায়।
+              চাল,ডাল,তেল,সবজি,মাছ,মাংসসহ বাজারভিত্তিক বিস্তারিত গড়, সর্বনিম্ন সর্বাধিক এবং দামের পরিবর্তন এক জায়গায়
             </p>
 
             <div className="mt-6">
@@ -28,7 +25,7 @@ export default function Hero() {
                 href="#all-products"
                 className="inline-flex items-center gap-2 rounded-lg bg-green-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-green-700"
               >
-                বাজার দর দেখুন
+                সব পণ্য দেখুন
                 <span aria-hidden="true">→</span>
               </a>
             </div>
