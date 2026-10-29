@@ -1,4 +1,5 @@
 import type { Product } from "@/lib/api";
+import Link from "next/link";
 
 type PriceChangesProps = {
   products: Product[];
@@ -82,8 +83,8 @@ export default function PriceChanges({
           ) : (
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {risingProducts.map((product) => (
-                <article
-                  key={product.id}
+                <Link
+                  key={product.id} href={`/product/${product.slug || product.id}`}
                   className="group flex min-w-0 items-center gap-3 rounded-2xl border border-gray-100 bg-white p-3 shadow-sm transition hover:-translate-y-0.5 hover:border-green-200 hover:shadow-md sm:gap-4 sm:p-4"
                 >
                   <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-green-50 text-3xl">
@@ -121,7 +122,7 @@ export default function PriceChanges({
                       দাম বেড়েছে
                     </p>
                   </div>
-                </article>
+                </Link>
               ))}
             </div>
           )}
@@ -146,8 +147,8 @@ export default function PriceChanges({
           ) : (
             <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {fallingProducts.map((product) => (
-                <article
-                  key={product.id}
+                <Link
+                  key={product.id} href={`/product/${product.slug || product.id}`}
                   className="group rounded-2xl border border-gray-100 bg-white p-5 shadow-sm transition duration-200 hover:-translate-y-1 hover:border-red-200 hover:shadow-md"
                 >
                   <div className="flex items-center gap-4">
@@ -185,7 +186,7 @@ export default function PriceChanges({
                       %
                     </span>
                   </div>
-                </article>
+                </Link>
               ))}
             </div>
           )}

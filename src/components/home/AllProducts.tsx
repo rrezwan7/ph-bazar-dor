@@ -1,4 +1,5 @@
 import type { Product } from "@/lib/api";
+import Link from "next/link";
 
 type AllProductsProps = {
   products: Product[];
@@ -26,11 +27,11 @@ function getUnit(unit: string) {
 export default function AllProducts({
   products,
 }: AllProductsProps) {
-  const visibleProducts = products.slice(0, 32);
+  const visibleProducts = products;
 
   return (
     <section
-      id="all-products"
+      id="সব-পণ্য"
       className="scroll-mt-40 bg-gray-50 px-4 py-12 sm:px-6 lg:px-8"
     >
       <div className="mx-auto max-w-7xl">
@@ -59,10 +60,11 @@ export default function AllProducts({
                 product.image || product.categoryIcon || "🛒";
 
               return (
-                <article
-                  key={product.id}
-                  className="group rounded-2xl border border-gray-200 bg-white p-4 transition duration-200 hover:-translate-y-1 hover:border-green-300 hover:shadow-lg"
-                >
+               <Link
+  key={product.id}
+  href={`/product/${product.slug || product.id}`}
+  className="group rounded-2xl border border-gray-200 bg-white p-4 transition duration-200 hover:-translate-y-1 hover:border-green-300 hover:shadow-lg"
+>
                   <div className="mb-4 flex h-20 w-20 items-center justify-center rounded-xl bg-green-50">
                     <span
                       className="text-5xl leading-none"
@@ -77,22 +79,28 @@ export default function AllProducts({
                     {product.nameBn}
                   </h3>
 
-                  <p className="mt-2 text-lg font-bold text-green-700">
-                    {bangla(product.today)} টাকা
-                  </p>
+                 <p className="mt-2 text-xs text-gray-500">
+  আজকের দাম
+</p>
+
+<p className="mt-1 text-lg font-bold text-green-700">
+  {product.today.toLocaleString("bn-BD", {
+    maximumFractionDigits: 2,
+  })} টাকা
+</p>
 
                   <p className="mt-1 text-xs text-gray-500">
                     প্রতি {getUnit(product.unit)}
                   </p>
 
                   <p
-                    className={`mt-2 text-xs font-medium ${
-                      product.change.dir === "up"
-                        ? "text-red-600"
-                        : product.change.dir === "down"
-                          ? "text-green-600"
-                          : "text-gray-500"
-                    }`}
+                   className={`mt-2 text-xs font-medium ${
+  product.change.dir === "up"
+    ? "text-green-700"
+    : product.change.dir === "down"
+      ? "text-red-600"
+      : "text-gray-500"
+}`}
                   >
                     {product.change.dir === "up"
                       ? "▲"
@@ -101,7 +109,7 @@ export default function AllProducts({
                         : "—"}{" "}
                     {bangla(Math.abs(product.change.pct))}%
                   </p>
-                </article>
+                </Link>
               );
             })}
           </div>

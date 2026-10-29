@@ -157,7 +157,7 @@ function CategoryContent() {
             </div>
 
             <label className="flex flex-wrap items-center gap-3 text-sm font-medium text-gray-600">
-              দাম অনুযায়ী সাজাও
+              সাজান:
 
               <select
                 value={sort}
@@ -165,8 +165,8 @@ function CategoryContent() {
                 className="rounded-xl border border-gray-200 bg-white px-3 py-2.5 outline-none focus:border-green-500"
               >
                 <option value="default">ডিফল্ট</option>
-                <option value="low">কম দাম থেকে বেশি</option>
-                <option value="high">বেশি দাম থেকে কম</option>
+<option value="low">দাম: কম থেকে বেশি</option>
+<option value="high">দাম: বেশি থেকে কম</option>
               </select>
             </label>
           </section>
@@ -211,8 +211,8 @@ function CategoryContent() {
                 const direction = product.change.dir;
 
                 return (
-                  <article
-                    key={product.id}
+                  <Link
+                    key={product.id} href={`/product/${product.slug || product.id}`}
                     className="group rounded-2xl border border-gray-100 bg-white p-5 shadow-sm transition duration-200 hover:-translate-y-1 hover:shadow-md"
                   >
                     <div className="flex items-start justify-between gap-3">
@@ -224,12 +224,12 @@ function CategoryContent() {
 
                       <span
                         className={`rounded-full px-3 py-1 text-xs font-semibold ${
-                          direction === "up"
-                            ? "bg-red-50 text-red-600"
-                            : direction === "down"
-                              ? "bg-green-50 text-green-700"
-                              : "bg-gray-100 text-gray-500"
-                        }`}
+  direction === "up"
+    ? "bg-green-50 text-green-700"
+    : direction === "down"
+      ? "bg-red-50 text-red-600"
+      : "bg-gray-100 text-gray-500"
+}`}
                       >
                         {direction === "same"
                           ? "—"
@@ -256,7 +256,7 @@ function CategoryContent() {
                         {bangla(product.today)} টাকা
                       </p>
                     </div>
-                  </article>
+                  </Link>
                 );
               })}
             </div>

@@ -22,7 +22,7 @@ export default function Hero() {
 
             <div className="mt-6">
               <a
-                href="#all-products"
+                href="#সব-পণ্য"
                 className="inline-flex items-center gap-2 rounded-lg bg-green-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-green-700"
               >
                 সব পণ্য দেখুন
