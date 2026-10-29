@@ -67,18 +67,11 @@ export default function PriceChanges({
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-6 flex items-center gap-3">
-            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-green-50 text-2xl">
-              📈
-            </div>
 
             <div>
               <h2 className="text-xl font-bold text-gray-900 sm:text-2xl">
-                আজ দাম বেড়েছে ▲
+                ▲ আজ দাম বেড়েছে 
               </h2>
-
-              <p className="mt-1 text-sm text-gray-500">
-                আজ যেসব পণ্যের দাম সবচেয়ে বেশি বেড়েছে
-              </p>
             </div>
           </div>
 
@@ -138,18 +131,11 @@ export default function PriceChanges({
       <section className="bg-[#f3f8f4] px-4 py-10 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="mb-6 flex items-center gap-3">
-            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-red-50 text-2xl">
-              📉
-            </div>
 
             <div>
               <h2 className="text-xl font-bold text-gray-900 sm:text-2xl">
-                আজ দাম কমেছে ▼
+                ▼ আজ দাম কমেছে 
               </h2>
-
-              <p className="mt-1 text-sm text-gray-500">
-                আজ যেসব পণ্যের দাম সবচেয়ে বেশি কমেছে
-              </p>
             </div>
           </div>
 
