@@ -71,20 +71,21 @@ export default function Header() {
             className="flex items-center justify-between overflow-x-auto"
           >
             {categories.map((category) => (
-              <span
-                key={category.slug}
-                className="flex shrink-0 items-center justify-center gap-2 border-b-2 border-transparent px-3 py-3 text-xs font-medium text-gray-700 sm:px-5 sm:py-4 sm:text-sm"
-              >
-                <span
-                  aria-hidden="true"
-                  className="shrink-0 text-base sm:text-lg"
-                >
-                  {category.icon}
-                </span>
+  <Link
+    key={category.slug}
+    href={`/category/${category.slug}`}
+    className="flex shrink-0 items-center justify-center gap-2 border-b-2 border-transparent px-3 py-3 text-xs font-medium text-gray-700 transition hover:bg-green-50 hover:text-green-600 sm:px-5 sm:py-4 sm:text-sm"
+  >
+    <span
+      aria-hidden="true"
+      className="shrink-0 text-base sm:text-lg"
+    >
+      {category.icon}
+    </span>
 
-                <span>{category.name}</span>
-              </span>
-            ))}
+    <span>{category.name}</span>
+  </Link>
+))}
           </nav>
         </div>
       </div>
