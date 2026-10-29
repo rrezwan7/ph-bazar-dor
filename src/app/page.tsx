@@ -23,6 +23,7 @@ export default async function HomePage() {
 
       <main className="w-full bg-gray-50 pb-12">
         <Hero />
+        {!error && <PriceChanges products={products} />}
 
         <div className="mx-auto max-w-7xl px-4 pt-6 sm:px-6 lg:px-8">
           {error ? (
@@ -31,7 +32,7 @@ export default async function HomePage() {
             </div>
           ) : (
             <>
-              <PriceChanges products={products} />
+              {/* <PriceChanges products={products} /> */}
 
               <section id="all-products" className="scroll-mt-40">
                 <div className="mb-5 flex items-center justify-between gap-4">
