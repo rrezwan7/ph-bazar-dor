@@ -56,6 +56,12 @@ async function ProfileContent() {
               {user.email}
             </p>
           </div>
+          <Link
+  href="/profile/update"
+  className="inline-flex rounded-xl bg-green-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-green-700"
+>
+  Update Information
+</Link>
         </div>
       </section>
     </div>
