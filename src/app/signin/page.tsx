@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useEffect, useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import toast from "react-hot-toast";
@@ -14,6 +14,21 @@ export default function SignInPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+
+  useEffect(() => {
+  const url = new URL(window.location.href);
+
+  if (url.searchParams.get("reason") === "login-required") {
+    toast.error("পণ্যের বিস্তারিত দেখতে লগইন করুন।", {
+      id: "login-required",
+    });
+
+    url.searchParams.delete("reason");
+    window.history.replaceState(null, "", url.pathname + url.search);
+  }
+}, []);
+
+  
 
   function showError(message: string) {
     setError(message);
