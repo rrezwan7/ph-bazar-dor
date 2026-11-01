@@ -60,9 +60,12 @@ export default function AuthButtons() {
   if (session?.user) {
     return (
       <div className="flex shrink-0 items-center gap-2 sm:gap-3">
-        <span className="hidden max-w-32 truncate text-sm font-semibold text-gray-700 sm:block">
-          {session.user.name}
-        </span>
+        <Link
+  href="/profile"
+  className="max-w-32 truncate rounded-lg px-2 py-2 text-xs font-semibold text-gray-700 transition hover:bg-green-50 hover:text-green-700 sm:text-sm"
+>
+  My Profile
+</Link>
 
         <button
           type="button"
