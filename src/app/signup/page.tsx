@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import toast from "react-hot-toast";
 import { authClient } from "@/lib/auth-client";
+import SocialLogin from "@/components/auth/SocialLogin";
 
 export default function SignupPage() {
   const router = useRouter();
@@ -206,6 +207,7 @@ export default function SignupPage() {
                 : "অ্যাকাউন্ট তৈরি করুন"}
             </button>
           </form>
+          <SocialLogin disabled={loading} />
 
           <p className="mt-7 text-center text-sm text-gray-600">
             ইতিমধ্যে অ্যাকাউন্ট আছে?{" "}

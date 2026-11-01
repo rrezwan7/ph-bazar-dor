@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import toast from "react-hot-toast";
 import { authClient } from "@/lib/auth-client";
+import SocialLogin from "@/components/auth/SocialLogin";
 
 export default function SignInPage() {
   const router = useRouter();
@@ -171,6 +172,7 @@ export default function SignInPage() {
               {loading ? "Logging in..." : "Login"}
             </button>
           </form>
+          <SocialLogin disabled={loading} />
 
           <p className="mt-7 text-center text-sm text-gray-500">
             Don&apos;t have an account?{" "}
