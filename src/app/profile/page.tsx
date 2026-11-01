@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import Link from "next/link";
 import { auth } from "@/lib/auth";
 import Header from "@/components/layout/Header";
+import LinkAccounts from "@/components/profile/LinkAccounts";
 
 async function ProfileContent() {
   const session = await auth.api.getSession({
@@ -62,6 +63,7 @@ async function ProfileContent() {
 >
   Update Information
 </Link>
+<LinkAccounts />
         </div>
       </section>
     </div>
